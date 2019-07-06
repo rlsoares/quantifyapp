@@ -1,0 +1,20 @@
+pt-BR:
+    hello: "Olá mundo"
+
+activerecord:
+    number:
+        currency:
+          format:
+            delimiter: "."
+            format: "%u %n"
+            precision: 2
+            separator: ","
+            significant: false
+            strip_insignificant_zeros: false
+            unit: R$
+        format:
+          delimiter: "."
+          precision: 3
+          separator: ","
+          significant: false
+          strip_insignificant_zeros: false

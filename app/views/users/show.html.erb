@@ -1,0 +1,157 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<h1 class="text-center"> O que deseja fazer, <%= current_user.nome %> ?</h1>
+<div class="row">
+  <hr>
+</div>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-1 ">
+    </div>
+    <div class="col-lg-3 ">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <i class="fa fa-barcode fa-5x"></i>
+              </div>
+              <div class="col-xs-6 text-right">
+                <p class="announcement-heading">1</p>
+                <p class="announcement-text">Minhas tabelas</p>
+              </div>
+            </div>
+          </div>
+          <a href="<%= users_path + '/' + current_user.id.to_s + '/official_sheets' %>">
+            <div class="panel-footer announcement-bottom">
+              <div class="row">
+                <div class="col-xs-6">
+                  Expand
+                </div>
+                <div class="col-xs-6 text-right">
+                  <i class="fa fa-arrow-circle-right"></i>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <div class="row">
+                <div class="col-xs-6">
+                  <i class="fa fa-address-card-o fa-5x"></i>
+                </div>
+                <div class="col-xs-6 text-right">
+                  <p class="announcement-heading">2</p>
+                  <p class="announcement-text">Editar usuário</p>
+                </div>
+              </div>
+            </div>
+            <a href="<%= users_path + '/' + current_user.id.to_s + '/edit' %>">
+              <div class="panel-footer announcement-bottom">
+                <div class="row">
+                  <div class="col-xs-6">
+                    Expand
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <i class="fa fa-arrow-circle-right"></i>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+
+                    <i class="fa fa-credit-card fa-5x" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <p class="announcement-heading">3</p>
+                    <p class="announcement-text">Inserir novo pagamento</p>
+                  </div>
+                </div>
+              </div>
+              <a href="<%= users_path + '/' + current_user.id.to_s + '/debts' + '/new' %>">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      Expand
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-arrow-circle-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-1 ">
+        </div>
+
+          <div class="col-lg-3 ">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      <i class="fa fa-plus-square fa-5x" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <p class="announcement-heading">4</p>
+                      <p class="announcement-text">Minhas receitas</p>
+                    </div>
+                  </div>
+                </div>
+                <a href="<%= users_path + '/' + current_user.id.to_s + '/incomes' %>">
+                  <div class="panel-footer announcement-bottom">
+                    <div class="row">
+                      <div class="col-xs-6">
+                        Expand
+                      </div>
+                      <div class="col-xs-6 text-right">
+                        <i class="fa fa-arrow-circle-right"></i>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 ">
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <i class="fa fa-minus-square fa-5x" aria-hidden="true"></i>
+                      </div>
+                      <div class="col-xs-6 text-right">
+                        <p class="announcement-heading">5</p>
+                        <p class="announcement-text">Minhas despesas</p>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="<%= users_path + '/' + current_user.id.to_s
+                  + '/debts' %>">
+                    <div class="panel-footer announcement-bottom">
+                      <div class="row">
+                        <div class="col-xs-6">
+                          Expand
+                        </div>
+                        <div class="col-xs-6 text-right">
+                          <i class="fa fa-arrow-circle-right"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+        </div>
+
+
+</div>

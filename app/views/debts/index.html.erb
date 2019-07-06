@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-xs-12 text-center">
+    <h1>Meus Gastos <%= link_to 'Voltar', usuario_path, class: 'btn btn-warning' %></h1>
+  </div>
+
+  <div class="col-md-8 col-md-offset-2 col-xs-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+          <th>Vencimento</th>
+          <th colspan="2">
+            Ações
+            <%= link_to 'Inserir novo gasto', new_user_debt_path(current_user), class: 'btn btn-success' %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @debts.empty? %>
+          <tr>
+            <td colspan="4" class="text-center">
+              <h3>Sem gastos cadastrados.</h3>
+              <%= link_to 'click aqui', new_user_debt_path(current_user) %> para cadastrar um novo gasto
+            </td>
+          </tr>
+        <% end %>
+        <% @debts.each do |d| %>
+        <tr>
+          <td>
+            <%= d.name %>
+          </td>
+          <td>
+            <%= d.description %>
+          </td>
+          <td>
+            <%=  number_to_currency(d.price, unit: "R$", separator: ",", delimiter: "." , precision: 2)  %>
+          </td>
+          <td>
+            <%= d.payday %>
+          </td>
+          <td>
+            <%= link_to 'Editar', edit_user_debt_path(current_user, d), class: 'btn btn-warning' %>
+          </td>
+          <td>
+            <%= link_to 'Excluir', user_debt_path(current_user, d), method: :delete, class: 'btn btn-danger', data: { confirm: 'Tem certeza que deseja excluir?' } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>

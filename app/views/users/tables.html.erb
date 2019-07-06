@@ -1,0 +1,95 @@
+<div class="row">
+  <%= link_to 'Voltar', user_path, class: 'btn btn-warning' %>
+  
+<div class="col-xs-12 text-center">
+  <h1>Minhas receitas </h1>
+</div>
+
+<div class="col-md-8 col-md-offset-2 col-xs-12">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+
+        <th colspan="2">
+          Ações
+          <%= link_to 'Inserir nova receita', new_user_income_path(current_user), class: 'btn btn-success' %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.incomes.each do |d| %>
+      <tr>
+        <td>
+          <%= d.name %>
+        </td>
+
+        <td>
+          <%=  number_to_currency(d.value, unit: "R$", separator: ",", delimiter: "." , precision: 2)  %>
+        </td>
+        <td>
+          <%= d.date %>
+        </td>
+        <td>
+          <%= link_to 'Editar', edit_user_income_path(current_user, d), class: 'btn btn-warning' %>
+        </td>
+        <td>
+          <%= link_to 'Excluir', user_income_path(current_user, d), method: :delete, class: 'btn btn-danger', data: { confirm: 'Tem certeza que deseja excluir?' } %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+  <div class="col-xs-12 text-center">
+    <h1>Meus Gastos</h1>
+  </div>
+
+  <div class="col-md-8 col-md-offset-2 col-xs-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+          <th>Vencimento</th>
+          <th colspan="2">
+            Ações
+            <%= link_to 'Inserir novo gasto', new_user_debt_path(current_user), class: 'btn btn-success' %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% current_user.debts.each do |d| %>
+        <tr>
+          <td>
+            <%= d.name %>
+          </td>
+          <td>
+            <%= d.description %>
+          </td>
+          <td>
+            <%=  number_to_currency(d.price, unit: "R$", separator: ",", delimiter: "." , precision: 2)  %>
+          </td>
+          <td>
+            <%= d.payday %>
+          </td>
+          <td>
+            <%= link_to 'Editar', edit_user_debt_path(current_user, d), class: 'btn btn-warning' %>
+          </td>
+          <td>
+            <%= link_to 'Excluir', user_debt_path(current_user, d), method: :delete, class: 'btn btn-danger', data: { confirm: 'Tem certeza que deseja excluir?' } %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
